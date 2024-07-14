@@ -1,0 +1,12 @@
+FROM python:3.9-slim
+
+# Set environment variables
+ENV DB_HOST=mysql-db
+ENV DB_USER=app
+ENV DB_PASSWORD=QwErTy1234
+ENV DB_NAME=virtd
+
+WORKDIR /app
+COPY . /app
+RUN pip install --no-cache-dir -r requirements.txt
+CMD ["python", "main.py"]
