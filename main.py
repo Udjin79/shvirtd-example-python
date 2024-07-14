@@ -32,7 +32,7 @@ cursor.execute(create_table_query)
 @app.route('/')
 def index():
     # Получение IP-адреса пользователя
-    ip_address = request.remote_addr
+    ip_address = request.headers.get('X-Forwarded-For')
 
     # Запись в базу данных
     now = datetime.now()
